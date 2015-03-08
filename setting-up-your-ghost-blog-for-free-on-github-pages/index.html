@@ -1,0 +1,247 @@
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Setting up your Ghost blog for free on GitHub Pages</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/normalize.css?v=c82adf0c0a">
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css?v=c82adf0c0a">
+
+    
+
+    <link rel="canonical" href="http://localhost:2368/setting-up-your-ghost-blog-for-free-on-github-pages/">
+    
+    <meta property="og:site_name" content="&lt;into&gt; {Code}">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Setting up your Ghost blog for free on GitHub Pages">
+    <meta property="og:description" content="I did this following these resources:  this this this , but had some trouble and thought that a more detailed, step-by-step guide would benefit others who are at a similar skill level as I. Much of the work here will be...">
+    <meta property="og:url" content="http://localhost:2368/setting-up-your-ghost-blog-for-free-on-github-pages/">
+    <meta property="article:published_time" content="2015-03-08T01:28:58.199Z">
+    <meta property="article:modified_time" content="2015-03-08T01:36:49.230Z">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Setting up your Ghost blog for free on GitHub Pages">
+    <meta name="twitter:description" content="I did this following these resources:  this this this , but had some trouble and thought that a more detailed, step-by-step guide would benefit others who are at a similar skill level as I. Much of the work here will be...">
+    <meta name="twitter:url" content="http://localhost:2368/setting-up-your-ghost-blog-for-free-on-github-pages/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "&lt;into&gt; {Code}",
+    "author": {
+        "@type": "Person",
+        "name": "Adriano Valle",
+        "url": "http://localhost:2368/author/adriano",
+        "sameAs": null
+    },
+    "headline": "Setting up your Ghost blog for free on GitHub Pages",
+    "url": "http://localhost:2368/setting-up-your-ghost-blog-for-free-on-github-pages/",
+    "datePublished": "2015-03-08T01:28:58.199Z",
+    "dateModified": "2015-03-08T01:36:49.230Z",
+    "description": "I did this following these resources:  this this this , but had some trouble and thought that a more detailed, step-by-step guide would benefit others who are at a similar skill level as I. Much of the work here will be..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.5">
+    <link rel="alternate" type="application/rss+xml" title="&lt;into&gt; {Code}" href="http://localhost:2368/rss/">
+</head>
+<body class="post-template">
+
+    <header id="site-head">
+        
+        <h1 class="blog-title"><a href="http://localhost:2368">&lt;into&gt; {Code}</a></h1>
+        <h2 class="blog-description">CHRONICLES OF MY JOURNEY. INTO LEARNING. INTO MAKING. INTO PLAYING. INTO CODE.</h2>    </header>
+
+    
+<main class="content" role="main">
+
+    <article class="post">
+
+
+        <header>
+        
+        <h1 class="post-title">Setting up your Ghost blog for free on GitHub Pages</h1>
+        <div class="post-meta"><time datetime="2015-03-07">Saturday, March 07, 2015</time></div>
+        </header>
+
+        <section class="post-content">
+            <p>I did this following these resources: <br>
+<a href="http://ledtechnica.com/free-ghost-hosting-on-github-pages/">this</a>
+<a href="https://jackpearce.com/have-a-lightning-fast-blog-and-host-it-for-free/">this</a>
+<a href="https://stefanscherer.github.io/setup-ghost-for-github-pages/">this</a>
+, but had some trouble and thought that a more detailed, step-by-step guide would benefit others who are at a similar skill level as I.</p>
+
+<p>Much of the work here will be done on the command line.  Follow these steps carefully and you shouldn't have any problems.</p>
+
+<h3 id="installnodejs">Install Node.js</h3>
+
+<p>Use Homebrew</p>
+
+<h3 id="downloadandinstallghost">Download and Install Ghost</h3>
+
+<p>Install locally</p>
+
+<p>Check latest version at <a href="https://ghost.org/download/">Ghost.org</a></p>
+
+<p>Make Ghost directory</p>
+
+<pre><code>mkdir ghost
+</code></pre>
+
+<p>Move into the directory</p>
+
+<pre><code>cd ghost
+</code></pre>
+
+<h3 id="startghost">Start Ghost</h3>
+
+<pre><code>npm start
+</code></pre>
+
+<h3 id="logintoghost">Login to Ghost</h3>
+
+<p>This command will open in your browser.  This will connect you to the Ghost Admin interface.  Create an account now.</p>
+
+<pre><code>open http://localhost:2368/ghost  
+</code></pre>
+
+<p>After you've created your account, you'll see your dashboard.  Here you'll find an pre-generated blog post that details how to write your posts using Markdown.  Take time to take a look.</p>
+
+<h3 id="createagithubaccount">Create a GitHub account</h3>
+
+<p>Create account.  Free.  </p>
+
+<h3 id="createyourgithubpagesrepo">Create your GitHub Pages repo</h3>
+
+<p>See the GitHub Pages Basics Documentation for details.</p>
+
+<p>You must use the username/username.github.io naming scheme. The repo name must be lower case even if your username has upper case letters.</p>
+
+<h3 id="installbuster">Install Buster</h3>
+
+<p>With the tool <a href="https://github.com/axitkhurana/buster">Buster</a> you can export the Ghost blogs into static pages. First we install Buster with:</p>
+
+<pre><code>brew install python  
+sudo pip install buster  
+</code></pre>
+
+<h3 id="deploy">Deploy</h3>
+
+<p>Make sure that Ghost is running locally.</p>
+
+<h3 id="preparestaticfolder">Prepare static folder</h3>
+
+<p>Buster requires a folder specifically named <code>static</code> in which it will generate your static pages from your locally running instance of Ghost.</p>
+
+<p>I have placed the <code>static</code> folder for Buster inside my Ghost installation. So I just cloned my <code>username/username.github.io</code> repo with a target directory name like this:</p>
+
+<pre><code>git clone git@github.com:username/username.github.io.git static 
+</code></pre>
+
+<p>This will link your GitHub repo to this folder.  Later we will have Buster generate your blog and push it onto this repo.</p>
+
+<h3 id="writeblogposts">Write Blog posts</h3>
+
+<p>Now your setup is complete and you can start writing Blog posts in Ghost.  Make sure Ghost is still running.  If not, simply move into the ghost directory and start running it.</p>
+
+<pre><code>cd ghost
+npm start
+</code></pre>
+
+<p>Now you can work on your blog.  Configure it to your heart's desire and write some posts.</p>
+
+<h3 id="exportyourghostblog">Export your Ghost blog</h3>
+
+<p>All published blog posts could be exported to the <code>static</code> folder with Buster.</p>
+
+<pre><code>buster generate --domain=http://localhost:2368 
+</code></pre>
+
+<p>This command will take the product of your locally running instance of Ghost, your blog, and generate the files needed to push the static pages up to GitHub.  Remember, Ghost <strong>needs</strong> to be running for this step to work.  If you get any errors like <code>Connecting to localhost|::1|:2368... failed: Connection refused.</code>, this is most probably the reason.  Since no instance of Ghost is currently running at <code>localhost:2368</code>, Buster has nothing to connect to, and the connection fails.</p>
+
+<pre><code>buster preview  
+open http://localhost:9000  
+</code></pre>
+
+<p>The output of Buster can be previewed on port 9000.  As long as Ghost is running, you'll be able to keep refreshing the preview in your browser to immediately see your last changes.  This allows you to view your blog as it will appear once it has been deployed to the web prior to it being made live.  This way you can check for errors, work on your formatting, etc, and make sure you're satisfied before you go live.</p>
+
+<h3 id="deploytogithubpages">Deploy to GitHub Pages</h3>
+
+<pre><code>buster deploy  
+</code></pre>
+
+<p>This will add, commit and push all files in the static folder to your GitHub repo.</p>
+
+<p>For the initial push, please wait up to 10 minutes until GitHub deploys your subdomain.</p>
+
+<p>All upcoming pushes are much faster and you can see your static Ghost blog posts on <a href="https://username.github.io">https://username.github.io</a></p>
+
+<h3 id="writenewblogposts">Write new Blog posts</h3>
+
+<p>To write new Blog posts or update the existing ones, first start Ghost. </p>
+
+<pre><code>cd ghost  
+npm start  
+</code></pre>
+
+<p>Now you can go to <code>http://localhost:2368/ghost</code> to access your dashboard.  Here you can create new posts,  edit posts, or tweak the settings and appearance of your blog.  Once you're done, use <code>deploy</code> to generate and deploy the static pages.</p>
+
+<pre><code>buster deploy  
+</code></pre>
+
+<p>The sed commands will fix the share links from localhost to your correct GitHub pages URL.</p>
+
+<p>That's it.</p>
+        </section>
+
+        <section class="share">
+            <p class="info prompt">Share this post</p>
+            <a href="http://twitter.com/share?text=Setting%20up%20your%20Ghost%20blog%20for%20free%20on%20GitHub%20Pages&amp;url=http://localhost:2368/setting-up-your-ghost-blog-for-free-on-github-pages/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/setting-up-your-ghost-blog-for-free-on-github-pages/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-2x fa-fw fa-facebook-square"></i> <span class="hidden">Facebook</span>
+            </a>
+            <a href="https://plus.google.com/share?url=http://localhost:2368/setting-up-your-ghost-blog-for-free-on-github-pages/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                <i class="fa fa-2x fa-fw fa-google-plus-square"></i> <span class="hidden">Google+</span>
+            </a>
+        </section>
+
+        <footer class="post-footer">
+
+            <section class="author">
+                <div class="authorimage" style="background: url(index.html)"></div>
+                <p class="attr">Author</p>
+                <h4><a href="index.html">Adriano Valle</a></h4>
+                <p class="bio"></p>
+            </section>
+
+        </footer>
+
+
+
+    </article>
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">© 2015 <a href="../">&lt;into&gt; {Code}</a>. All rights reserved.</section>
+            <section>Vapor theme by <a href="http://sethlilly.com/">Seth Lilly</a></section>
+            <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://ghost.org/"><span class="hidden">Ghost</span></a></section>
+        </div>
+    </footer>
+
+    <script src="../public/jquery.js?v=c82adf0c0a"></script>
+
+    <script type="text/javascript" src="../assets/js/index.js?v=c82adf0c0a"></script>
+
+</body>
