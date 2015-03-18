@@ -1,0 +1,97 @@
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>&lt;into&gt; {Code}</title><description>CHRONICLES OF MY JOURNEY. INTO LEARNING. INTO MAKING. INTO PLAYING. INTO CODE.</description><link>http://localhost:2368/</link><generator>Ghost 0.5</generator><lastBuildDate>Wed, 18 Mar 2015 16:02:53 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Command Line Hacks: Launch Sublime Text 2 from Mac OSX Terminal</title><description>&lt;p&gt;I've been getting real chummy with my &lt;a href="http://en.wikipedia.org/wiki/Bash_(Unix_shell)"&gt;Bash&lt;/a&gt; recently, using Terminal constantly, especially since starting my &lt;a href="http://skillcrush.com/2015/01/29/13-ruby-rails/"&gt;Skillcrush Ruby on Rails Blueprint&lt;/a&gt; last month.  I've even done a chunk of coding directly in the Terminal using &lt;a href="http://en.wikipedia.org/wiki/Vim_(text_editor)"&gt;Vim&lt;/a&gt;, which is awesome, but for the more complex projects I really miss the familiarity of &lt;a href="http://www.sublimetext.com/"&gt;&lt;strong&gt;Sublime&lt;/strong&gt;&lt;/a&gt;.  I still wanted to do all my file/directory creation and directory navigation on the command line, then launch Sublime from there to work.  There didn't seem to be a way to do that... until I found this bit of genius from &lt;a href="https://gist.github.com/artero/1236170"&gt;artero&lt;/a&gt;!  &lt;/p&gt;
+
+&lt;h2 id="thegoal"&gt;The Goal&lt;/h2&gt;
+
+&lt;p&gt;We want to be able to type the following commands in the Terminal and have them launch Sublime:  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sublime filename  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;This will open a specific file in Sublime.&lt;/strong&gt; &lt;br&gt;
+&lt;em&gt;(replace "filename" with an actual file name)&lt;/em&gt;  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sublime foldername
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;This will open a specific folder in Sublime.&lt;/strong&gt; &lt;br&gt;
+&lt;em&gt;(replace "foldername" with an actual folder name)&lt;/em&gt;  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sublime .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;This will open the entire current directory in Sublime.&lt;/strong&gt;  &lt;/p&gt;
+
+&lt;h2 id="thegist"&gt;The Gist&lt;/h2&gt;
+
+&lt;p&gt;Turns out that Sublime Text 2 comes with a command line tool, &lt;code&gt;subl&lt;/code&gt;, that we can use to allow us to launch our projects from the Terminal.  Go &lt;a href="http://www.sublimetext.com/docs/2/osx_command_line.html"&gt;here&lt;/a&gt; for Sublime's official documantation regarding the &lt;code&gt;subl&lt;/code&gt; CLI. &lt;br&gt;
+To create the behavior we want, we will create a &lt;a href="http://en.wikipedia.org/wiki/Symbolic_link"&gt;symlink&lt;/a&gt; called &lt;code&gt;sublime&lt;/code&gt; that links the &lt;code&gt;subl&lt;/code&gt; &lt;a href="http://whatis.techtarget.com/definition/binary-file"&gt;binary&lt;/a&gt; in your Sublime application package to a folder your system uses to look for binaries to launch.  So when you call &lt;code&gt;sublime&lt;/code&gt; in the Terminal it will call &lt;code&gt;subl&lt;/code&gt; through this system folder and thereby launch Sublime.  I'm sure a coder of higher caliber can explain this better, but that's the idea, and it works!&lt;/p&gt;
+
+&lt;h2 id="makingithappen"&gt;Making it happen&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Note: The following instructions assume youve installed Sublime Text 2 inside of your &lt;code&gt;/Applications&lt;/code&gt; folder&lt;/em&gt;  &lt;/p&gt;
+
+&lt;p&gt;First, we create our symlink &lt;code&gt;sublime&lt;/code&gt;.  Open your Terminal and type in the code below.  It might help to use copy/paste, as missing whitespaces will make it fail. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;This creates the symlink&lt;/em&gt; &lt;code&gt;sublime&lt;/code&gt; &lt;em&gt;in your&lt;/em&gt; &lt;code&gt;/usr/local/bin&lt;/code&gt; &lt;em&gt;folder.&lt;/em&gt;  &lt;/p&gt;
+
+&lt;p&gt;Now we have to edit our &lt;code&gt;.bash_profile&lt;/code&gt;.  This file contains the startup configuration for your command line interface.  You can edit this file to create a highly customized environment.  &lt;a href="http://natelandau.com/my-mac-osx-bash_profile/"&gt;This&lt;/a&gt; is a great place to start if you want to know more about the &lt;code&gt;.bash_profile&lt;/code&gt; file and how to customize it.&lt;/p&gt;
+
+&lt;p&gt;Moving on.  Type in the following in your Terminal: &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;open ~/.bash_profile  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This command opens your &lt;code&gt;.bash_profile&lt;/code&gt; file in your default text editor (probably TextEdit).  &lt;/p&gt;
+
+&lt;p&gt;Look for a line at the top of your &lt;code&gt;.bash_profile&lt;/code&gt; file that starts with &lt;code&gt;export PATH=&lt;/code&gt;  &lt;/p&gt;
+
+&lt;p&gt;This line will contain all the directories that are searched for executable binaries when you type a command in Terminal. &lt;/p&gt;
+
+&lt;p&gt;If this line doesn't exist, simply add it by typing: &lt;br&gt;
+&lt;code&gt;export PATH=/usr/local/bin:$PATH&lt;/code&gt;  &lt;/p&gt;
+
+&lt;p&gt;If the &lt;code&gt;export PATH=&lt;/code&gt; line does exist, simply add &lt;code&gt;/usr/local/bin&lt;/code&gt; in front of &lt;code&gt;:$PATH&lt;/code&gt;  &lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;NOTE: You may have other directories already listed in front of&lt;/em&gt; &lt;code&gt;:$PATH&lt;/code&gt;&lt;em&gt;, they will be separated by a&lt;/em&gt; &lt;code&gt;:&lt;/code&gt;&lt;em&gt;, simply add your line and separate it from any other directories by adding your own&lt;/em&gt; &lt;code&gt;:&lt;/code&gt; &lt;em&gt;between your edit and any existing directories to make it look something like this:&lt;/em&gt; &lt;br&gt;
+&lt;code&gt;export PATH=/usr/local/bin:other/directory:one/more/directory:$PATH&lt;/code&gt;  &lt;/p&gt;
+
+&lt;p&gt;Great!  Now save your &lt;code&gt;.bash_profile&lt;/code&gt; file and exit out of your text editor.  &lt;/p&gt;
+
+&lt;p&gt;Now, to reload your &lt;code&gt;.bash_profile&lt;/code&gt; with the new edit, go back to your Terminal and type:  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;source ~/.bash_profile  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You're done!  Try it out!  &lt;/p&gt;
+
+&lt;h2 id="thenewcommandsreviewed"&gt;The new commands, reviewed&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;sublime filename  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;(replace "filename" with an actual file name)&lt;/em&gt;  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sublime foldername
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;(replace "foldername" with an actual folder name)&lt;/em&gt;  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sublime .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id="enjoy"&gt;Enjoy&lt;/h2&gt;
+
+&lt;p&gt;This little hack has changed my life and made my workflow just a little better, I hope it helps you out as well.  If you think it might help anyone you know, please share it.  Till next week!&lt;/p&gt;</description><link>http://localhost:2368/opening-sublime-files-or-folders-from-the-command-line/</link><guid isPermaLink="false">338e7aca-02d2-4917-ae6e-f7d815961027</guid><dc:creator>Adriano Valle</dc:creator><pubDate>Wed, 18 Mar 2015 05:19:46 GMT</pubDate></item><item><title>About First Learning to Code</title><description>&lt;p&gt;We all have to start somewhere.  This isn't the beginning.  It started somewhere else, in another time, but here I am now.  This part of my journey began exactly 2 years ago this month ( I was surprised to learn today! ) on &lt;a href="http://www.codecademy.com/adrtk"&gt;Codecademy&lt;/a&gt;, with &lt;a href="http://www.codecademy.com/adrtk"&gt;me&lt;/a&gt; running through their HTML, CSS, and JavaScript tracks.  &lt;/p&gt;
+
+&lt;p&gt;As I often do, I started at the finish line, diving into JavaScript first; it was like diving into concrete.  I mean, I got through the exercises, enjoying the acheivements; I decoded each challenge, akin to solving a puzzle in a video game, using my wits to unlock the next stage, but without retaining any knowledge.  I wasn't 'getting' it.  It was too foreign to me.&lt;/p&gt;
+
+&lt;p&gt;I finally got through JavaScript, winded after the struggle, and decided to take their HTML &amp;amp; CSS track next.  This seemed easier.  It brought me back to other beginnings, college days in the late 90s spent tinkering with &lt;a href="http://oneterabyteofkilobyteage.tumblr.com/"&gt;Geocities&lt;/a&gt; pages, embedding images and midi files, creating garish inline styles to 'jazz' up my site.  I knew this stuff, or at least the concepts.  It got more fun.    &lt;/p&gt;
+
+&lt;p&gt;Now I felt like I was starting to understand.  It wasn't all gibberish.  I was living the &lt;a href="https://www.youtube.com/watch?v=aVVURiaVgG8"&gt;campfire montage&lt;/a&gt; in &lt;a href="http://en.wikipedia.org/wiki/The_13th_Warrior"&gt;The 13th Warrior&lt;/a&gt;, in which Antonio Banderas learns the language of the Vikings ( turned out to be English! ).  Out of the haze, objects came into focus.  The tumblers were clicking into place, understanding soon to be unlocked.  Or so I thought.&lt;/p&gt;
+
+&lt;p&gt;The next track I embarked upon was jQuery.  I hadn't really understood JavaScript, but as I went through the lessons in jQuery, the operations became clearer, it was easier to see what was going on.  With simpler logic on the surface, the structures became more apparent.  &lt;/p&gt;
+
+&lt;p&gt;Yet upon completion of these 3 tracks, although I felt more knowledgeable in talking about these concepts, I still hadn't gained much perspective on how to use these concepts outside of their sandbox.  I needed something more...&lt;/p&gt;</description><link>http://localhost:2368/my-first-post/</link><guid isPermaLink="false">d83a4fab-b92a-4008-acdb-07a574a9e60c</guid><dc:creator>Adriano Valle</dc:creator><pubDate>Sat, 07 Mar 2015 06:01:56 GMT</pubDate></item></channel></rss>
