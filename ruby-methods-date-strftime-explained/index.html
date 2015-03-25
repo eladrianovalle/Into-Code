@@ -1,0 +1,155 @@
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Ruby Methods: Date.strftime</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/normalize.css?v=d58089e73b">
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css?v=d58089e73b">
+
+    
+
+    <link rel="canonical" href="http://into-code.com/ruby-methods-date-strftime-explained/">
+    
+    <meta property="og:site_name" content="&lt;into&gt; {Code}">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Ruby Methods: Date.strftime">
+    <meta property="og:description" content="In my Ruby Skillcrush course, we've been using the Date object in many of our projects.  The Date object is incredibly powerful, having many methods that give us a wealth of information to use with our apps.  But the output...">
+    <meta property="og:url" content="http://into-code.com/ruby-methods-date-strftime-explained/">
+    <meta property="article:published_time" content="2015-03-25T17:07:51.137Z">
+    <meta property="article:modified_time" content="2015-03-25T17:46:21.254Z">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Ruby Methods: Date.strftime">
+    <meta name="twitter:description" content="In my Ruby Skillcrush course, we've been using the Date object in many of our projects.  The Date object is incredibly powerful, having many methods that give us a wealth of information to use with our apps.  But the output...">
+    <meta name="twitter:url" content="http://into-code.com/ruby-methods-date-strftime-explained/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "&lt;into&gt; {Code}",
+    "author": {
+        "@type": "Person",
+        "name": "Adriano Valle",
+        "image": "http://into-code.com/content/images/2015/03/ProfilePic1.jpg",
+        "url": "http://into-code.com/author/adriano",
+        "sameAs": null
+    },
+    "headline": "Ruby Methods: Date.strftime",
+    "url": "http://into-code.com/ruby-methods-date-strftime-explained/",
+    "datePublished": "2015-03-25T17:07:51.137Z",
+    "dateModified": "2015-03-25T17:46:21.254Z",
+    "description": "In my Ruby Skillcrush course, we&#x27;ve been using the Date object in many of our projects.  The Date object is incredibly powerful, having many methods that give us a wealth of information to use with our apps.  But the output..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.5">
+    <link rel="alternate" type="application/rss+xml" title="&lt;into&gt; {Code}" href="http://into-code.com/rss/">
+</head>
+<body class="post-template">
+
+    <header id="site-head">
+        <a id="blog-logo" href="http://into-code.com"><div class="bloglogo" style="background: url(../content/images/2015/03/pic_dev-1.svg)"></div></a>
+        <h1 class="blog-title"><a href="http://into-code.com">&lt;into&gt; {Code}</a></h1>
+        <h2 class="blog-description">CHRONICLES OF MY JOURNEY. INTO LEARNING. INTO MAKING. INTO PLAYING. INTO CODE.</h2>    </header>
+
+    
+<main class="content" role="main">
+
+    <article class="post">
+
+
+        <header>
+        
+        <h1 class="post-title">Ruby Methods: Date.strftime</h1>
+        <div class="post-meta"><time datetime="2015-03-25">Wednesday, March 25, 2015</time></div>
+        </header>
+
+        <section class="post-content">
+            <p>In my <a href="http://skillcrush.com/blueprint/ruby-rails-developer/">Ruby Skillcrush course</a>, we've been using the Date object in many of our projects.  The Date object is incredibly powerful, having many methods that give us a wealth of information to use with our apps.  But the output we get is often in a format that isn't suitable for us to display to human users.  Enter the <code>strftime</code> method.  </p>
+
+<pre><code>Date.strftime("%args") =&gt; "date string"
+</code></pre>
+
+<p>Using <code>strftime</code>, we can take the output of our Date object and transform it into a nicely formatted string.  And more so, we have a wealth of formatting directives we can pass through to the output to create a multitude of differently formatted outputs.  </p>
+
+<p>Here are a few examples for a Date object <code>d = Date.now</code> representing today, March 25, 2015:  </p>
+
+<p><strong>Date in "Month Day, Year" format</strong>  </p>
+
+<pre><code>d.strftime("%B %d, %Y") =&gt; "March 25, 2015"  
+</code></pre>
+
+<p><strong>Date in "Weekday, Month Day, Year" format</strong>  </p>
+
+<pre><code>d.strftime("%A, %B %d, %Y") =&gt; "Wednesday, March 25, 2015" 
+</code></pre>
+
+<p><strong>Date in "MMDDYYYY" format</strong>  </p>
+
+<pre><code>d.strftime("%m%d%Y") =&gt; "03252015"  
+</code></pre>
+
+<p>Note that you can include other characters with the directives in your argument, like spaces and commas, even entire words, that will be included in your output.</p>
+
+<p>For example:</p>
+
+<pre><code>d.strftime("Created on %m/%d/%Y")   #=&gt; "Printed on 03/25/2015"
+</code></pre>
+
+<p><a href="https://twitter.com/mbuckbee">Mike Buckbee</a> built a cool little tool called <a href="http://www.foragoodstrftime.com/">"For a Good Strftime"</a> that lets you pick and choose the format you want for your output and it'll tell you what directives you'll need to pass through to the <code>strftime</code> argument.  <a href="http://strftimer.com/">Strftimer</a> is a sweet tool that allows you to input a date string in the format you wish to employ, and it'll output the exact declaration you need to acheive it.  For an extensive list of all the possible directives you can pass through to <code>strftime</code>, check the Ruby docs <a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/date/rdoc/Date.html">here</a>, <a href="http://apidock.com/ruby/DateTime/strftime">this resource</a> at <a href="http://apidock.com/">APIdock</a>, or <a href="https://hackhands.com/format-datetime-ruby/">this post</a> by Akshay Mohite.</p>
+
+<p>The Date, Time, and DateTime objects all behave similarly, both as Ruby objects and in regards to the <code>strftime</code> method, but they each have their own specific uses and slight differences, so make sure you use the right one for your specific application.</p>
+        </section>
+
+        <section class="share">
+            <p class="info prompt">Share this post</p>
+            <a href="http://twitter.com/share?text=Ruby%20Methods:%20Date.strftime&amp;url=http://into-code.com/ruby-methods-date-strftime-explained/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://into-code.com/ruby-methods-date-strftime-explained/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-2x fa-fw fa-facebook-square"></i> <span class="hidden">Facebook</span>
+            </a>
+            <a href="https://plus.google.com/share?url=http://into-code.com/ruby-methods-date-strftime-explained/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                <i class="fa fa-2x fa-fw fa-google-plus-square"></i> <span class="hidden">Google+</span>
+            </a>
+        </section>
+
+        <footer class="post-footer">
+
+            <section class="author">
+                <div class="authorimage" style="background: url(../content/images/2015/03/ProfilePic1.jpg)"></div>
+                <p class="attr">Author</p>
+                <h4><a href="index.html">Adriano Valle</a></h4>
+                <p class="bio"></p>
+            </section>
+
+        </footer>
+
+
+
+    </article>
+
+</main>
+
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">© 2015 <a href="../">&lt;into&gt; {Code}</a>. All rights reserved.</section>
+            <section>Vapor theme by <a href="http://sethlilly.com/">Seth Lilly</a></section>
+            <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://ghost.org/"><span class="hidden">Ghost</span></a></section>
+        </div>
+    </footer>
+
+    <script src="../public/jquery.js?v=d58089e73b"></script>
+
+    <script type="text/javascript" src="../assets/js/index.js?v=d58089e73b"></script>
+
+</body>
