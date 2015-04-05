@@ -1,0 +1,178 @@
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Getting to Know Unity 5: A Roadshow and a Crafting Class</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/normalize.css?v=bae4692615">
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css?v=bae4692615">
+
+    
+
+    <link rel="canonical" href="http://into-code.com/getting-to-know-unity-5/">
+    
+    <meta property="og:site_name" content="&lt;into&gt; {Code}">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Getting to Know Unity 5: A Roadshow and a Crafting Class">
+    <meta property="og:description" content="Recently I had my first experience using Unity 5. I'd had some exposure to Unity 4 a few years ago, but without any tutelage, I had a hard time making heads or tails of it.  But now that I'm actively...">
+    <meta property="og:url" content="http://into-code.com/getting-to-know-unity-5/">
+    <meta property="article:published_time" content="2015-04-04T16:59:39.247Z">
+    <meta property="article:modified_time" content="2015-04-05T02:24:18.082Z">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Getting to Know Unity 5: A Roadshow and a Crafting Class">
+    <meta name="twitter:description" content="Recently I had my first experience using Unity 5. I'd had some exposure to Unity 4 a few years ago, but without any tutelage, I had a hard time making heads or tails of it.  But now that I'm actively...">
+    <meta name="twitter:url" content="http://into-code.com/getting-to-know-unity-5/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "&lt;into&gt; {Code}",
+    "author": {
+        "@type": "Person",
+        "name": "Adriano Valle",
+        "image": "http://into-code.com/content/images/2015/03/ProfilePic1.jpg",
+        "url": "http://into-code.com/author/adriano",
+        "sameAs": null
+    },
+    "headline": "Getting to Know Unity 5: A Roadshow and a Crafting Class",
+    "url": "http://into-code.com/getting-to-know-unity-5/",
+    "datePublished": "2015-04-04T16:59:39.247Z",
+    "dateModified": "2015-04-05T02:24:18.082Z",
+    "description": "Recently I had my first experience using Unity 5. I&#x27;d had some exposure to Unity 4 a few years ago, but without any tutelage, I had a hard time making heads or tails of it.  But now that I&#x27;m actively..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.5">
+    <link rel="alternate" type="application/rss+xml" title="&lt;into&gt; {Code}" href="http://into-code.com/rss/">
+</head>
+<body class="post-template">
+
+    <header id="site-head">
+        <a id="blog-logo" href="http://into-code.com"><div class="bloglogo" style="background: url(../content/images/2015/03/pic_dev-1.svg)"></div></a>
+        <h1 class="blog-title"><a href="http://into-code.com">&lt;into&gt; {Code}</a></h1>
+        <h2 class="blog-description">CHRONICLES OF MY JOURNEY. INTO LEARNING. INTO MAKING. INTO PLAYING. INTO CODE.</h2>    </header>
+
+    
+<main class="content" role="main">
+
+    <article class="post">
+
+
+        <header>
+        
+        <h1 class="post-title">Getting to Know Unity 5: A Roadshow and a Crafting Class</h1>
+        <div class="post-meta"><time datetime="2015-04-04">Saturday, April 04, 2015</time></div>
+        </header>
+
+        <section class="post-content">
+            <p>Recently I had my first experience using <a href="http://unity3d.com/">Unity 5</a>. I'd had some exposure to Unity 4 a few years ago, but without any tutelage, I had a hard time making heads or tails of it.  But now that I'm actively getting into game design and development, I'm giving Unity a long, serious look.  These 2 events were my starter kit into Unity 5, allowing me to familiarize myself with the platform.  </p>
+
+<p>First, I attended the <a href="http://unity3d.com/events/unity-5-roadshow-new-york-sold-out">Unity 5 Roadshow</a>, hosted by Unity Evangelist <a href="https://twitter.com/carlunity">Carl Callewaert</a> and Field Engineer Francis Duranceau, who walked us through building an FPS while showcasing the new features in Unity 5.  </p>
+
+<p>Later in the week I attended a workshop organized by <a href="http://www.meetup.com/gaming/">Playcrafting NYC</a> on how to build and release a simple endless runner on mobile using Unity 5.  Our instructor, the very funny and talented <a href="http://www.wqazi.com/">Wase Qazi</a>, put together a nicely structured and well-paced day-long class in which he took us step-by-step through the process of planning, designing, building, and eventually deploying a mobile game using Unity 5.</p>
+
+<h2 id="unity5roadshow">Unity 5 Roadshow</h2>
+
+<p><img src="../content/images/2015/04/unity_roadshow_screenshot-1.jpg" alt="unity_workshop_project_screenshot"></p>
+
+<p>The first thing we looked at was the new physically-based standard shader and the new metallic map that comes with it.  The simple-to-use sliders give you precision control over the metallic quality and the smoothness of your object, letting you tweak all your surfaces to make them look just right.  And with the option of baking it in, you can achieve these highly polished effects with very little processing costs.  </p>
+
+<p>The next thing he showed us were the new hdr reflection probes, which in conjunction with the new shader allow for incredibly realistic surfaces throughout your game.  By defining the area parameters of our reflection probes and slightly overlapping the threshold of each probe as we moved from one area to another, we were able to convincingly create very real looking reflections on our metallic bazooka.  They glided smoothly across the metal barrel of the gun as our character moved around the world and the transitions from one area to another looked seamless.  And once again, with the option to have it all baked in, all this came very cheaply.   </p>
+
+<p>The animator also has a few new neat tricks up it's sleeve.  Now you can add state machines to any animation state, creating a sub-state machine where you can define multiple animations within each specified state.  He demonstrated this by having us create a shoot state that itself had 2 separate shoot states within it.  One state had a single shot animation state and the other a shotgun-like spray shot animation state, which we cycled through at random using a script we applied to the "entry" node of our shoot state.  </p>
+
+<p>The original animation sequence traversed the nodes "start-shoot-end", but upon entering the shoot node, the animator moved into another state machine that could branch from the "entry" node to either "shoot" state at random.  Upon completing the specified animation, the animator transitioned to an "exit" node that then took us back to the initial state animator sequence.  These state machines are fully nestable to allow for easy organization of complex animation states.  </p>
+
+<p>The last thing we discussed was the new audio mixer and it's new ducking feature.  Ducking allows one audio source to cause another audio source to lower it's volume in order for the first audio source to register clearly.  We added some background music to our game and added sound effects to our firing animations, and then added ducking to allow for the sound of shots being fired to register clearly over the music in the background.  As each shot rang out the background music would go down a few levels and go back to it's normal volume as the gun sound effect ended.</p>
+
+<p>The workshop was great.  Carl and Francis made everything fun and easy to follow, and they were very eager to help anyone out who needed any clarification.  I'm definitely looking forward to the next time they're in town! </p>
+
+<h2 id="playcraftingnyc">Playcrafting NYC</h2>
+
+<p><img src="../content/images/2015/04/ratscape_screenshot.jpg" alt="ratscape_screenshots"></p>
+
+<p>The objective of this workshop was for the class to design, develop, and deploy a simple endless runner for mobile platforms in one day.  Though a hefty task, <a href="https://twitter.com/waseqazi">Qazi</a> kept the class moving steadily toward our goal, helping to set limits on us at each stage and focusing our strengths so each person contributed the most to the outcome of the project.  </p>
+
+<p>To begin, we split up into teams and had a bit of fun competing for best game ideas, game mechanics, and game titles.  We ended up with a mash-up of each team's ideas, deciding upon Ratscape, a top-down endless runner in which a rat races its way through an office labyrinth steering clear of obstacles while avoiding death in the belly of the janitor's vacuum cleaner.  After deciding on this direction for the game, the style, and the tone, we broke off into teams again, leveraging the strengths each group brought to the table to produce the game sprites, the music and sound effects, and the UI elements.  Once we'd produced some assets, we started putting them together in Unity and figuring out what kind of game logic we should use to acheive our goal.  </p>
+
+<p>The few tough, and interesting, challenges we encountered were in how to implement player control inputs and movement limits, figuring out the right physics for our game, and putting together the proper collision parameters for each game object so the player interactions worked the way the team envisioned it.  </p>
+
+<p>Once we'd landed on satisfactory solutions for these problems, we shifted our attention on how to generate our game obstacles and how to create our endless level generator.  We considered 2 different options: creating an endless floor surface upon which game obstacles were spawned upon in random points and intervals, or instead designing a number of game tiles with pre-set obstacles which could be randomly generated in succession to create the illusion of an organic world but avoiding the possibility of an impossible level.  </p>
+
+<p>Qazi also shared with us a great strategy for creating a memory-efficient endless runner; instead of creating an endless world that our character moves within, instead you make the character and game camera static, then make the world move under him instead.  This creates the illusion of movement, but since all you need to care about is what's visible inside the game camera's view, all you need to create is the world right outside the viewport and then destroy it right past it, saving yourself tons of memory.</p>
+
+<p>This workshop was awesome.  Although we ended up with a small, silly game that looks and feels pretty raw, we still acheived our goal, and had a real blast doing it.  The Playcrafting team was great and I truly look forward to taking more of their classes (especially the Unity intensive they are planning for this summer!). You can check on upcoming Playcrafting NYC classes and workshops here, and you can download the game here.</p>
+        </section>
+
+        <section class="share">
+            <p class="info prompt">Share this post</p>
+            <a href="http://twitter.com/share?text=Getting%20to%20Know%20Unity%205:%20A%20Roadshow%20and%20a%20Crafting%20Class&amp;url=http://into-code.com/getting-to-know-unity-5/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://into-code.com/getting-to-know-unity-5/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-2x fa-fw fa-facebook-square"></i> <span class="hidden">Facebook</span>
+            </a>
+            <a href="https://plus.google.com/share?url=http://into-code.com/getting-to-know-unity-5/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                <i class="fa fa-2x fa-fw fa-google-plus-square"></i> <span class="hidden">Google+</span>
+            </a>
+        </section>
+
+        <footer class="post-footer">
+
+            <section class="author">
+                <div class="authorimage" style="background: url(../content/images/2015/03/ProfilePic1.jpg)"></div>
+                <p class="attr">Author</p>
+                <h4><a href="index.html">Adriano Valle</a></h4>
+                <p class="bio"></p>
+            </section>
+
+        </footer>
+
+
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'intocode'; // required: replace example with your forum shortname
+            var disqus_identifier = '7'; // make sure to use the post.id as an identifier, otherwise disqus will use the pages url per default, which might be problematic...
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </article>
+
+</main>
+
+    <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Vapor -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4862972774291280" data-ad-slot="1679328482" data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">© 2015 <a href="../">&lt;into&gt; {Code}</a>. All rights reserved.</section>
+            <section>Vapor theme by <a href="http://sethlilly.com/">Seth Lilly</a></section>
+            <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://ghost.org/"><span class="hidden">Ghost</span></a></section>
+        </div>
+    </footer>
+
+    <script src="../public/jquery.js?v=bae4692615"></script>
+
+    <script type="text/javascript" src="../assets/js/index.js?v=bae4692615"></script>
+
+</body>
